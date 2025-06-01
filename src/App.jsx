@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// This code sets up a basic React application with routing using React Router.
+// It defines two routes: one for the login page and another for the dashboard page.
+// The `App` component uses the `Routes` and `Route` components from `react-router-dom` to define the paths and their corresponding components.
+// The `Login` component is rendered when the user navigates to `/login`, and the `Dashboard` component is rendered when the user navigates to `/dashboard`.
+// This structure allows for easy navigation between different parts of the application, making it a foundational setup for a React app with routing capabilities.
+// The `App` component serves as the main entry point for the application, where routing is defined.
+// The `Login` and `Dashboard` components are expected to be defined in their respective files under the `pages` directory.
+// This setup is commonly used in modern React applications to manage different views and user authentication flows.
+// The application is likely styled using Tailwind CSS, as indicated by the initial comments about the Tailwind configuration and Vite setup.
+
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
